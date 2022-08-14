@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 
+
+
 function NewBeer() {
   const navigate = useNavigate();
 
@@ -40,7 +42,9 @@ function NewBeer() {
     <div>
       <Navbar/>
       <h2>New Beer </h2>
+      
       <form onSubmit={handleSubmit}>
+
         <label htmlFor="name">Name:</label>
         <input
           type="text"

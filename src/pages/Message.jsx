@@ -7,8 +7,8 @@ function Message() {
   return (
     <div>
         <Navbar/>
-        <h3>La cerveza se ha agregado correctamente</h3>
-        <Link to="/beers">Volver al listado de cervezas</Link>
+        <h3>New beer successfully saved to database!</h3>
+        <Link to="/beers">Return to All Beers</Link>
     </div>
   )
 }
