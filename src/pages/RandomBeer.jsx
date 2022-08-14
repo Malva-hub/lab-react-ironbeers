@@ -5,6 +5,9 @@ import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
 
+import Navbar from "../components/Navbar";
+
+
 function RandomBeer() {
   const navigate = useNavigate();
 
@@ -34,6 +37,7 @@ function RandomBeer() {
 
   return (
     <div>
+      <Navbar/>
       <h3> Random Beer </h3>
       <div>
         <img className="imageBeer" src={randomBeer.image_url} alt="beer" />

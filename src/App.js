@@ -10,13 +10,12 @@ import Error from "./pages/Error";
 import BeerDetails from "./pages/BeerDetails";
 import Message from "./pages/Message";
 
-import Navbar from "./components/Navbar";
+
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-
+    
       <Routes>
         <Route path="/" element={<Home />} />
 

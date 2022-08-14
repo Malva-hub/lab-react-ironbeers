@@ -5,6 +5,10 @@ import { useState } from "react";
 
 import axios from "axios";
 
+
+import Navbar from "../components/Navbar";
+
+
 function BeerDetails() {
   const { beerId } = useParams();
 
@@ -45,6 +49,7 @@ function BeerDetails() {
 
   return (
     <div>
+       <Navbar />
       <div>
         <img className="imageBeer" src={image_url} alt="beer" />
         <div>

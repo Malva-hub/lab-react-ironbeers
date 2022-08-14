@@ -8,6 +8,10 @@ import {Link} from "react-router-dom"
 
 import {useNavigate} from "react-router-dom"
 
+import { FaBeer} from "react-icons/fa"
+
+import Navbar from "../components/Navbar";
+
 
 
 function AllBeers() {
@@ -55,8 +59,10 @@ function AllBeers() {
 
   return (
     <div>
+       <Navbar />
       <div>
-        <label>Search</label>
+     
+        <label>Search <FaBeer/></label>
         <input value={searchBeer} type="text" name="searchBeer" onChange={handleSearch} />
       </div>
         {allBeers.map((eachBeer) =>{
