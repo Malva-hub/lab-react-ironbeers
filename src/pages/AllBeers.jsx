@@ -4,9 +4,10 @@ import { useEffect } from 'react';
 
 import axios from "axios";
 
-import {Link, Navigate} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 import {useNavigate} from "react-router-dom"
+
 
 
 function AllBeers() {
@@ -17,9 +18,11 @@ function AllBeers() {
   
   const [isFetching, setIsFetching] = useState(true)
 
+  const [searchBeer, setSearchBeer] = useState([]);
+
   useEffect(() =>{
     getAllBeers()
-  })
+  },[])
 
   const getAllBeers = async () => {
     try{
@@ -36,11 +39,26 @@ function AllBeers() {
     return <h3>...Loading</h3>
   }
 
-  
+  const handleSearch = async (event) => {
+    try{
+      setSearchBeer(event.target.value)
+      const response = await axios.get(`https://ih-beers-api2.herokuapp.com/beers/search?q=${searchBeer}`)
+      setAllBeers([])
+      setAllBeers(response.data)
+      setIsFetching(false)
+    }catch(error){
+      navigate("/error")
+    }
+    
+  };
+
 
   return (
     <div>
-
+      <div>
+        <label>Search</label>
+        <input value={searchBeer} type="text" name="searchBeer" onChange={handleSearch} />
+      </div>
         {allBeers.map((eachBeer) =>{
           return (
               <div key={eachBeer._id}>
@@ -54,7 +72,7 @@ function AllBeers() {
               </div>
           )
         })}  
-    
+      
     </div>
   )
 }
